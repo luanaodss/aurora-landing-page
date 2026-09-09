@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg text-body font-body antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display text-ink;
+  }
+
+  /* Foco visível — nunca remover o outline, só estilizar com a cor de marca */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 3px solid theme("colors.teal");
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl font-display font-semibold text-sm transition-all duration-200 border-2 border-transparent;
+  }
+  .btn-primary {
+    @apply btn bg-violet text-white hover:bg-violet-dark hover:-translate-y-0.5;
+  }
+  .btn-secondary {
+    @apply btn bg-bg-tint text-violet-dark border-violet hover:bg-violet hover:text-white hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-ink border-line hover:border-violet hover:text-violet;
+  }
+
+  .eyebrow {
+    @apply font-display font-bold text-xs tracking-widest uppercase text-rosa-dark mb-2 inline-flex items-center gap-2;
+  }
+
+  .card {
+    @apply bg-surface border border-line rounded-2xl p-6;
+  }
+
+  .module-pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-violet bg-bg-tint px-3.5 py-1.5 text-sm font-semibold text-violet-dark transition-colors duration-150 hover:bg-violet hover:text-white;
+  }
+
+  /* Carrossel de depoimentos — scroll nativo (touch/trackpad) + arrastar com mouse
+     via JS. Sem autoplay: nada se move sozinho, então não há requisito de "pausar"
+     (WCAG 2.2.2) nem risco de o leitor de tela perder conteúdo — todos os 4
+     depoimentos continuam no DOM e são lidos em ordem, independente da posição
+     do scroll. */
+  .testimonial-track {
+    scrollbar-width: none;
+    cursor: grab;
+  }
+  .testimonial-track::-webkit-scrollbar {
+    display: none;
+  }
+  .testimonial-track.is-dragging {
+    cursor: grabbing;
+  }
+
+  .testimonial-card {
+    @apply relative flex h-full flex-col rounded-2xl border border-line bg-surface p-7 md:p-8 shadow-sm;
+  }
+  .quote-icon {
+    @apply w-8 h-8 text-rosa mb-4 shrink-0;
+  }
+  .testimonial-quote {
+    @apply font-display text-lg md:text-xl leading-snug text-ink;
+  }
+  .testimonial-cite {
+    @apply not-italic mt-6 block text-sm font-semibold text-muted-a11y;
+  }
+
+  .carousel-nav-btn {
+    @apply inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-line text-ink transition-colors duration-150 hover:border-violet hover:text-violet disabled:opacity-30 disabled:pointer-events-none disabled:hover:border-line disabled:hover:text-ink;
+  }
+
+  /* Chips de navegação rápida da seção "RH as a Service" — mesma base acessível
+     do .module-pill (usada no diagnóstico), para reforçar que é o mesmo tipo de
+     interação: clicar rola até o card e o destaca. A bolinha colorida é só
+     decorativa (aria-hidden) — não carrega significado sozinha, então não
+     precisa de contraste de texto (o rótulo ao lado já identifica o cluster). */
+  .cluster-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-violet bg-bg-tint px-3.5 py-1.5 text-sm font-semibold text-violet-dark transition-colors duration-150 hover:bg-violet hover:text-white;
+  }
+  .cluster-chip-dot {
+    @apply w-2 h-2 rounded-full shrink-0;
+  }
+
+  /* Linha de progresso do "motor de inteligência" — puramente decorativa
+     (aria-hidden), reforça a ideia de etapas conectadas conforme o usuário
+     rola a página. Sem JS ou com prefers-reduced-motion, os pontos e a seção
+     inteira continuam com o texto 100% legível, só sem a animação. */
+  .engine-dot {
+    /* transição de cor tratada via utilities (duration-500); aqui só o seletor de estado */
+  }
+  .engine-step.is-active .engine-dot {
+    @apply bg-violet text-white;
+  }
+
+  /* .reveal não fica invisível por padrão: a classe que esconde é adicionada
+     via JS (progressive enhancement). Assim, sem JavaScript, todo o conteúdo
+     permanece visível e acessível — nada depende de script para ser lido. */
+  .reveal-hidden {
+    @apply opacity-0 translate-y-4;
+  }
+  .reveal {
+    @apply transition-all duration-700 ease-out;
+  }
+
+  /* Moldura para as capturas de tela reais da plataforma (Hero e seção
+     "Funcionalidades"). Nada de barra de navegador com 3 pontinhos — isso é
+     um clichê de "print de SaaS genérico" que o próprio briefing da marca
+     pede para evitar; aqui é só um card com borda e sombra, deixando a
+     própria interface real da Aurora ser o protagonista. As imagens dentro
+     são conteúdo real, com `alt` descrevendo o que mostram, e foram
+     recortadas para excluir qualquer informação com aparência sensível
+     (ex.: a tabela de salário e o cálculo de custo de demissão de outras
+     telas do produto). */
+  .mockup-window {
+    @apply rounded-2xl border border-line bg-surface shadow-lg overflow-hidden;
+  }
+
+  /* Radio "cards" do diagnóstico — inputs nativos, apenas com aparência customizada */
+  .diag-option {
+    @apply appearance-none absolute inset-0 w-full h-full cursor-pointer rounded-xl;
+  }
+  .diag-option-label {
+    @apply relative flex items-center gap-3 rounded-xl border-2 border-line bg-surface px-4 py-3.5 font-medium text-ink transition-colors duration-150;
+  }
+  .diag-option:checked + .diag-option-label {
+    @apply border-violet bg-bg-tint;
+  }
+  .diag-option:focus-visible + .diag-option-label {
+    outline: 3px solid theme("colors.teal");
+    outline-offset: 2px;
+  }
+}

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora | RH as a Service para decisões conscientes sobre pessoas</title>
+  <meta name="description" content="A Aurora une dados e consciência humana em cada decisão sobre pessoas, do dia a dia da gestão às escolhas mais difíceis. Conheça o RH as a Service da Aurora.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS compilado com Tailwind (ver /src/input.css + tailwind.config.js) -->
+  <link rel="stylesheet" href="css/tailwind.css">
+</head>
+<body class="font-body text-body bg-bg">
+
+  <a class="skip-link sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[100] focus:bg-ink focus:text-white focus:px-4 focus:py-3 focus:rounded-br-xl" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <header id="siteHeader" class="sticky top-0 z-50 bg-bg/90 backdrop-blur border-b border-line transition-shadow duration-200">
+    <div class="max-w-content mx-auto px-6">
+      <div class="flex items-center justify-between gap-6 py-3">
+        <a href="#topo" id="topo" class="inline-flex" aria-label="Aurora, página inicial">
+          <img src="assets/images/logo-aurora.png" alt="Aurora" class="h-7 w-auto">
+        </a>
+
+        <button id="navToggle" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-line bg-surface" aria-expanded="false" aria-controls="navPrincipal" aria-label="Abrir menu de navegação">
+          <svg id="iconMenu" class="w-5 h-5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /></svg>
+          <svg id="iconClose" class="w-5 h-5 text-ink hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+        </button>
+
+        <nav id="navPrincipal" aria-label="Navegação principal" class="hidden lg:flex items-center gap-8 absolute lg:static top-full left-0 w-full lg:w-auto bg-bg lg:bg-transparent border-b lg:border-0 border-line px-6 lg:px-0 pb-4 lg:pb-0">
+          <ul class="flex flex-col lg:flex-row gap-4 lg:gap-7 py-4 lg:py-0 font-medium text-ink">
+            <li><a class="hover:text-violet" href="#solucao">Sobre</a></li>
+            <li><a class="hover:text-violet" href="#rh-as-a-service">Solução</a></li>
+            <li><a class="hover:text-violet whitespace-nowrap" href="#como-funciona">Como funciona</a></li>
+            <li><a class="hover:text-violet" href="#depoimentos">Depoimentos</a></li>
+            <li><a class="hover:text-violet" href="#contato">Contato</a></li>
+          </ul>
+          <a href="#contato" class="btn-primary w-full lg:w-auto whitespace-nowrap !py-2.5 !px-5 !text-[0.9rem] mb-4 lg:mb-0">Agendar demonstração</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-bg-tint py-14 md:py-12 md:min-h-[520px]" aria-labelledby="hero-title">
+      <div class="max-w-content mx-auto px-6 md:flex md:items-center md:min-h-[480px]">
+        <div class="reveal relative z-10 md:max-w-[52%] lg:max-w-[54%]">
+          <h1 id="hero-title" class="font-display font-extrabold text-ink text-[2.25rem] leading-[1.15] md:text-5xl lg:text-6xl md:leading-[1.1] mb-5">Decisões conscientes sobre as pessoas que movem o resultado da sua empresa</h1>
+          <p class="text-lg text-body mb-7">A Aurora une dados e consciência humana em cada decisão sobre pessoas, do dia a dia da gestão às escolhas mais difíceis, como um desligamento.</p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#contato" class="btn-primary">Agendar demonstração <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+            <a href="#diagnostico" class="btn-ghost">Fazer diagnóstico rápido</a>
+          </div>
+        </div>
+
+        <!-- Print real da plataforma "em evidência": em telas médias/grandes, escapa do
+             grid de texto e ocupa boa parte da largura da seção via position:absolute,
+             sangrando para além da borda direita da viewport (cortado pelo
+             overflow-hidden da section) — mesmo princípio de hero de produto da
+             referência enviada por Luana. Em mobile, sem espaço de sobra pra sangrar,
+             ele volta ao fluxo normal, contido, abaixo do texto. Print inteiro, sem
+             recorte (a pedido de Luana) — mostra a tela completa de "Meu Painel",
+             sidebar e cabeçalho inclusos, não só um recorte de cards. -->
+        <div class="relative mt-10 md:mt-0 md:absolute md:top-1/2 md:-translate-y-1/2 md:right-[-2rem] lg:right-[-4rem] xl:right-[-6rem] md:w-[50%] md:max-w-[720px]">
+          <div class="relative mockup-window shadow-2xl animate-float">
+            <img src="assets/images/screens/preview-hero-painel.webp" alt="Captura de tela real da plataforma Aurora: 'Meu Painel' de um gestor, com o Termômetro da Equipe (67% em zona segura, 4 em risco baixo, 2 em risco crítico), lista de colaboradores em foco de atenção e pendências de gestão contínua." class="w-full h-auto block" width="1400" height="889">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="py-12 md:py-16 bg-surface" id="problema" aria-labelledby="problema-title">
+      <div class="max-w-content mx-auto px-6 reveal">
+        <p class="eyebrow">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><line x1="12" x2="12" y1="8" y2="12" /><line x1="12" x2="12.01" y1="16" y2="16" /></svg>
+          O problema
+        </p>
+        <h2 id="problema-title" class="text-3xl md:text-4xl font-bold mb-4">Toda decisão sobre pessoas pesa</h2>
+        <p class="text-lg mb-8">Contratar, promover, desligar. São decisões que definem o resultado da empresa e a vida de quem trabalha nela, e ainda assim, na maioria das operações, são tomadas com informação incompleta.</p>
+
+        <div class="grid sm:grid-cols-3 gap-5">
+          <div class="card">
+            <div class="w-10 h-10 rounded-full bg-bg-tint text-violet-dark flex items-center justify-center mb-3" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" /><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" /><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></svg>
+            </div>
+            <p>Dados de performance, cultura e engajamento espalhados entre planilhas e sistemas diferentes.</p>
+          </div>
+          <div class="card">
+            <div class="w-10 h-10 rounded-full bg-bg-tint text-violet-dark flex items-center justify-center mb-3" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22h14" /><path d="M5 2h14" /><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22" /><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2" /></svg>
+            </div>
+            <p>Decisões difíceis tomadas sob pressão de tempo e sem apoio de dados consolidados.</p>
+          </div>
+          <div class="card">
+            <div class="w-10 h-10 rounded-full bg-bg-tint text-violet-dark flex items-center justify-center mb-3" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" /><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" /><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" /><path d="m2 2 20 20" /></svg>
+            </div>
+            <p>Pouca visibilidade sobre o impacto humano e financeiro de cada escolha até que seja tarde demais.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIAGNÓSTICO RÁPIDO (elemento interativo / disruptivo) -->
+    <section class="scroll-mt-24 py-12 md:py-16 bg-bg" id="diagnostico" aria-labelledby="diagnostico-title">
+      <div class="max-w-content mx-auto px-6">
+        <div class="max-w-[720px] mx-auto text-center reveal">
+          <p class="eyebrow justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg>
+            Diagnóstico rápido
+          </p>
+          <h2 id="diagnostico-title" class="text-3xl md:text-4xl font-bold mb-3">Qual o nível de consciência de dados nas decisões da sua empresa?</h2>
+          <p class="text-lg mb-8">3 perguntas rápidas, sem cadastro, para descobrir o quanto sua operação já decide com dados.</p>
+        </div>
+
+        <form id="diagForm" class="max-w-[640px] mx-auto card !p-6 md:!p-8 reveal" novalidate>
+          <div class="flex items-center justify-between mb-6">
+            <p id="diagProgressLabel" class="text-sm font-semibold text-muted-a11y" aria-live="polite">Etapa 1 de 3</p>
+            <div class="flex gap-1.5" aria-hidden="true">
+              <span class="diag-dot w-6 h-1.5 rounded-full bg-violet" data-dot="1"></span>
+              <span class="diag-dot w-6 h-1.5 rounded-full bg-line" data-dot="2"></span>
+              <span class="diag-dot w-6 h-1.5 rounded-full bg-line" data-dot="3"></span>
+            </div>
+          </div>
+
+          <!-- Etapa 1 -->
+          <fieldset class="diag-step" data-step="1">
+            <legend id="diagStep1Title" tabindex="-1" class="font-display font-semibold text-lg text-ink mb-4">Como sua empresa decide hoje sobre desligamentos e promoções?</legend>
+            <div class="grid gap-3">
+              <div class="relative">
+                <input class="diag-option peer" type="radio" name="q1" id="q1a" value="2">
+                <label class="diag-option-label peer-checked:!border-violet" for="q1a">Com dados consolidados de performance e cultura</label>
+              </div>
+              <div class="relative">
+                <input class="diag-option peer" type="radio" name="q1" id="q1b" value="1">
+                <label class="diag-option-label" for="q1b">Com a percepção dos gestores, sem dados centralizados</label>
+              </div>
+              <div class="relative">
+                <input class="diag-option peer" type="radio" name="q1" id="q1c" value="0">
+                <label class="diag-option-label" for="q1c">Não temos um processo estruturado</label>
+              </div>
+            </div>
+            <p class="diag-error hidden text-rosa-dark text-sm mt-3" role="alert">Selecione uma opção para continuar.</p>
+          </fieldset>
+
+          <!-- Etapa 2 -->
+          <fieldset class="diag-step hidden" data-step="2">
+            <legend id="diagStep2Title" tabindex="-1" class="font-display font-semibold text-lg text-ink mb-4">Seus dados de RH (performance, engajamento, cultura) estão:</legend>
+            <div class="grid gap-3">
+              <div class="relative">
+                <input class="diag-option peer" type="radio" name="q2" id="q2a" value="2">
+                <label class="diag-option-label" for="q2a">Em uma única plataforma, com visão consolidada</label>
+              </div>
+              <div class="relative">
+                <input class="diag-option peer" type="radio" name="q2" id="q2b" value="1">
+                <label class="diag-option-label" for="q2b">Espalhados em várias ferramentas e planilhas</label>
+              </div>
+              <div class="relative">
+                <input class="diag-option peer" type="radio" name="q2" id="q2c" value="0">
+                <label class="diag-option-label" for="q2c">Não coletamos esses dados de forma estruturada</label>
+              </div>
+            </div>
+            <p class="diag-error hidden text-rosa-dark text-sm mt-3" role="alert">Selecione uma opção para continuar.</p>
+          </fieldset>
+
+          <!-- Etapa 3 -->
+          <fieldset class="diag-step hidden" data-step="3">
+            <legend id="diagStep3Title" tabindex="-1" class="font-display font-semibold text-lg text-ink mb-4">Quantos colaboradores a empresa tem?</legend>
+            <div class="grid gap-3">
+              <div class="relative">
+                <input class="diag-option peer" type="radio" name="q3" id="q3a" value="ate-50">
+                <label class="diag-option-label" for="q3a">Até 50</label>
+              </div>
+              <div class="relative">
+                <input class="diag-option peer" type="radio" name="q3" id="q3b" value="50-350">
+                <label class="diag-option-label" for="q3b">De 50 a 350</label>
+              </div>
+              <div class="relative">
+                <input class="diag-option peer" type="radio" name="q3" id="q3c" value="mais-350">
+                <label class="diag-option-label" for="q3c">Mais de 350</label>
+              </div>
+            </div>
+            <p class="diag-error hidden text-rosa-dark text-sm mt-3" role="alert">Selecione uma opção para continuar.</p>
+          </fieldset>
+
+          <!-- Resultado -->
+          <div class="diag-step hidden" data-step="result">
+            <div id="diagResultIcon" class="w-12 h-12 rounded-full bg-bg-tint text-violet-dark flex items-center justify-center mb-4" aria-hidden="true">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /></svg>
+            </div>
+            <h3 id="diagResultTitle" tabindex="-1" class="font-display font-bold text-xl text-ink mb-2">—</h3>
+            <p id="diagResultText" class="mb-4">—</p>
+
+            <div class="mb-6">
+              <p class="text-xs font-semibold uppercase tracking-wide text-muted-a11y mb-2">Módulos recomendados para o seu momento</p>
+              <div id="diagResultModules" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <button type="button" id="diagResultCta" class="btn-primary">Agendar demonstração</button>
+              <button type="button" id="diagRestart" class="btn-ghost">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
+                Refazer diagnóstico
+              </button>
+            </div>
+          </div>
+
+          <div class="diag-nav flex justify-between mt-6" data-step-nav>
+            <button type="button" id="diagBack" class="btn-ghost invisible">Voltar</button>
+            <button type="button" id="diagNext" class="btn-primary">Avançar <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- SOLUÇÃO / SOBRE -->
+    <section class="scroll-mt-24 py-12 md:py-16 bg-surface" id="solucao" aria-labelledby="solucao-title">
+      <div class="max-w-content mx-auto px-6 reveal">
+        <div class="lg:grid lg:grid-cols-[1.35fr_1fr] lg:gap-12 lg:items-start">
+          <div>
+            <p class="eyebrow">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg>
+              A solução
+            </p>
+            <h2 id="solucao-title" class="text-3xl md:text-4xl font-bold mb-4">Uma forma mais consciente de decidir sobre pessoas</h2>
+            <p class="text-lg mb-8">Acreditamos que o futuro do RH une o digital ao humano: decisões sobre pessoas tomadas a partir de dados e com consciência dos impactos gerados, colocando as pessoas como protagonistas. A Aurora é o RH as a Service que dá a líderes e times de RH uma visão consolidada, da gestão do dia a dia às decisões mais difíceis.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-5">
+              <div>
+                <span class="w-9 h-9 rounded-full bg-bg-tint text-violet-dark flex items-center justify-center shrink-0 mb-3" aria-hidden="true">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg>
+                </span>
+                <h3 class="font-semibold text-ink mb-1">Dados centralizados</h3>
+                <p class="text-sm text-muted-a11y">Performance, cultura e engajamento em um só lugar.</p>
+              </div>
+              <div>
+                <span class="w-9 h-9 rounded-full bg-bg-tint text-rosa-dark flex items-center justify-center shrink-0 mb-3" aria-hidden="true">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762" /></svg>
+                </span>
+                <h3 class="font-semibold text-ink mb-1">Consciência humana</h3>
+                <p class="text-sm text-muted-a11y">Dados a serviço das pessoas, não o contrário.</p>
+              </div>
+              <div>
+                <span class="w-9 h-9 rounded-full bg-bg-tint text-teal flex items-center justify-center shrink-0 mb-3" aria-hidden="true">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18V5" /><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" /><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" /><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" /><path d="M18 18a4 4 0 0 0 2-7.464" /><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" /><path d="M6 18a4 4 0 0 1-2-7.464" /><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" /></svg>
+                </span>
+                <h3 class="font-semibold text-ink mb-1">Decisão com IA</h3>
+                <p class="text-sm text-muted-a11y">Insights acionáveis, não só relatórios.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 lg:mt-0">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-muted-a11y mb-4">Fundadoras</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <a href="https://www.linkedin.com/in/nayaraemsintonia/" target="_blank" rel="noopener noreferrer" class="card !p-3 flex flex-col items-center text-center gap-3 group transition-all duration-200 hover:-translate-y-1 hover:shadow-lg" aria-label="Nayara Melo no LinkedIn (abre em nova aba)">
+                <span class="relative w-full aspect-[4/5] rounded-xl overflow-hidden ring-2 ring-transparent group-hover:ring-teal group-focus-within:ring-teal transition-all duration-300">
+                  <img src="assets/images/nayara-melo.webp" alt="" class="w-full h-full object-cover object-top grayscale scale-100 transition-all duration-300 group-hover:grayscale-0 group-hover:scale-105 group-focus-within:grayscale-0" loading="lazy">
+                </span>
+                <span class="flex flex-col items-center">
+                  <span class="font-semibold text-ink">Nayara Melo</span>
+                  <span class="inline-flex items-center gap-1 text-xs text-muted-a11y">
+                    Co-CEO
+                    <svg class="w-3 h-3 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
+                  </span>
+                </span>
+              </a>
+              <a href="https://www.linkedin.com/in/tatianacavalcantecafre/" target="_blank" rel="noopener noreferrer" class="card !p-3 flex flex-col items-center text-center gap-3 group transition-all duration-200 hover:-translate-y-1 hover:shadow-lg" aria-label="Tatiana Cafre no LinkedIn (abre em nova aba)">
+                <span class="relative w-full aspect-[4/5] rounded-xl overflow-hidden ring-2 ring-transparent group-hover:ring-teal group-focus-within:ring-teal transition-all duration-300">
+                  <img src="assets/images/tatiana-cafre.webp" alt="" class="w-full h-full object-cover object-top grayscale scale-100 transition-all duration-300 group-hover:grayscale-0 group-hover:scale-105 group-focus-within:grayscale-0" loading="lazy">
+                </span>
+                <span class="flex flex-col items-center">
+                  <span class="font-semibold text-ink">Tatiana Cafre</span>
+                  <span class="inline-flex items-center gap-1 text-xs text-muted-a11y">
+                    Co-CEO
+                    <svg class="w-3 h-3 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RH AS A SERVICE -->
+    <section class="scroll-mt-24 py-12 md:py-16 bg-bg" id="rh-as-a-service" aria-labelledby="rh-service-title">
+      <div class="max-w-content mx-auto px-6 reveal">
+        <p class="eyebrow">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg>
+          O produto
+        </p>
+        <h2 id="rh-service-title" class="text-3xl md:text-4xl font-bold mb-4">O seu RH as a Service</h2>
+        <p class="text-lg mb-6">Impacte o resultado da empresa aproveitando o maior potencial das pessoas, com lideranças decidindo a partir de uma visão consolidada de suas áreas e liderados.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mb-10" role="group" aria-label="Ir direto para um cluster de módulos">
+          <a href="#cluster-performance" class="cluster-chip !flex w-full justify-center" data-cluster-chip><span class="cluster-chip-dot bg-violet" aria-hidden="true"></span>Performance &amp; Metas</a>
+          <a href="#cluster-cultura" class="cluster-chip !flex w-full justify-center" data-cluster-chip><span class="cluster-chip-dot bg-rosa" aria-hidden="true"></span>Cultura &amp; Valores</a>
+          <a href="#cluster-escuta" class="cluster-chip !flex w-full justify-center" data-cluster-chip><span class="cluster-chip-dot bg-teal" aria-hidden="true"></span>Escuta &amp; Dados</a>
+          <a href="#cluster-acao" class="cluster-chip !flex w-full justify-center" data-cluster-chip><span class="cluster-chip-dot bg-lilac" aria-hidden="true"></span>Ação &amp; Inteligência</a>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <article id="cluster-performance" class="card scroll-mt-24 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ring-0 ring-teal">
+            <div class="flex items-center gap-3 mb-3">
+              <svg class="w-6 h-6 text-violet-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h6v6" /><path d="m22 7-8.5 8.5-5-5L2 17" /></svg>
+              <h3 class="font-display font-semibold text-lg text-violet-dark">Performance &amp; Metas</h3>
+            </div>
+            <ul class="grid gap-2 pl-1">
+              <li><strong class="text-ink">Ciclo de Performance:</strong> acompanhe a evolução de cada colaborador ao longo de ciclos estruturados.</li>
+              <li><strong class="text-ink">Gestão de Metas:</strong> defina, acompanhe e avalie metas individuais e por área.</li>
+            </ul>
+          </article>
+
+          <article id="cluster-cultura" class="card scroll-mt-24 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ring-0 ring-teal">
+            <div class="flex items-center gap-3 mb-3">
+              <svg class="w-6 h-6 text-rosa-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762" /></svg>
+              <h3 class="font-display font-semibold text-lg text-violet-dark">Cultura &amp; Valores</h3>
+            </div>
+            <ul class="grid gap-2 pl-1">
+              <li><strong class="text-ink">Avaliação de Valores:</strong> meça o alinhamento dos colaboradores à cultura e aos valores da empresa.</li>
+              <li><strong class="text-ink">Feedbacks contínuos:</strong> cultura de feedback ao longo de todo o ciclo, não só na avaliação.</li>
+            </ul>
+          </article>
+
+          <article id="cluster-escuta" class="card scroll-mt-24 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ring-0 ring-teal">
+            <div class="flex items-center gap-3 mb-3">
+              <svg class="w-6 h-6 text-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.07 4.93A10 10 0 0 0 6.99 3.34" /><path d="M4 6h.01" /><path d="M2.29 9.62A10 10 0 1 0 21.31 8.35" /><path d="M16.24 7.76A6 6 0 1 0 8.23 16.67" /><path d="M12 18h.01" /><path d="M17.99 11.66A6 6 0 0 1 15.77 16.67" /><circle cx="12" cy="12" r="2" /><path d="m13.41 10.59 5.66-5.66" /></svg>
+              <h3 class="font-display font-semibold text-lg text-violet-dark">Escuta &amp; Dados</h3>
+            </div>
+            <ul class="grid gap-2 pl-1">
+              <li><strong class="text-ink">Radar de Experiência:</strong> mapeie a experiência dos colaboradores em múltiplas dimensões.</li>
+              <li><strong class="text-ink">Pesquisas Customizáveis:</strong> crie pesquisas sob medida para as necessidades da sua operação.</li>
+            </ul>
+          </article>
+
+          <article id="cluster-acao" class="card scroll-mt-24 border-lilac bg-bg-tint transition-all duration-200 hover:-translate-y-1 hover:shadow-lg ring-0 ring-teal">
+            <div class="flex items-center gap-3 mb-3">
+              <svg class="w-6 h-6 text-lilac" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 5h8" /><path d="M13 12h8" /><path d="M13 19h8" /><path d="m3 17 2 2 4-4" /><path d="m3 7 2 2 4-4" /></svg>
+              <h3 class="font-display font-semibold text-lg text-violet-dark">Ação &amp; Inteligência</h3>
+            </div>
+            <ul class="grid gap-2 pl-1">
+              <li><strong class="text-ink">Planos de Ação:</strong> transforme diagnósticos em planos de ação acompanháveis.</li>
+              <li><strong class="text-ink">Chatbot Boreal:</strong> IA que entrega insights acionáveis para a liderança decidir melhor.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA / MOTOR DE INTELIGÊNCIA -->
+    <section class="scroll-mt-24 py-12 md:py-16 bg-surface" id="como-funciona" aria-labelledby="como-funciona-title">
+      <div class="max-w-content mx-auto px-6 reveal">
+        <p class="eyebrow">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4" /><path d="M3.34 19a10 10 0 1 1 17.32 0" /></svg>
+          Como funciona
+        </p>
+        <h2 id="como-funciona-title" class="text-3xl md:text-4xl font-bold mb-2">O motor de inteligência da Aurora</h2>
+        <p class="text-lg mb-10">Gestão em tempo real, com previsibilidade dos resultados.</p>
+
+        <div class="relative" id="engineWrapper">
+          <div class="pointer-events-none absolute left-10 top-10 bottom-10 w-0.5 bg-line" aria-hidden="true"></div>
+          <div class="pointer-events-none absolute left-10 top-10 w-0.5 bg-violet transition-[height] duration-700 ease-out" id="engineProgressLine" style="height:0" aria-hidden="true"></div>
+
+          <ol class="relative grid gap-3" id="engineList">
+            <li class="engine-step flex gap-4 card !rounded-xl">
+              <span class="engine-dot w-8 h-8 rounded-full bg-bg-tint text-violet-dark font-display font-bold text-sm flex items-center justify-center shrink-0 transition-colors duration-500" aria-hidden="true">1</span>
+              <div class="min-w-0">
+                <h3 class="font-semibold text-ink mb-1">Radar de Experiência</h3>
+                <p>Diagnóstico em tempo real de engajamento para garantir uma base sólida de produtividade.</p>
+              </div>
+            </li>
+            <li class="engine-step flex gap-4 card !rounded-xl">
+              <span class="engine-dot w-8 h-8 rounded-full bg-bg-tint text-violet-dark font-display font-bold text-sm flex items-center justify-center shrink-0 transition-colors duration-500" aria-hidden="true">2</span>
+              <div class="min-w-0">
+                <h3 class="font-semibold text-ink mb-1">Valores e Match Cultural</h3>
+                <p>Monitoramento constante do alinhamento comportamental e da aderência aos princípios da organização.</p>
+              </div>
+            </li>
+            <li class="engine-step flex gap-4 card !rounded-xl">
+              <span class="engine-dot w-8 h-8 rounded-full bg-bg-tint text-violet-dark font-display font-bold text-sm flex items-center justify-center shrink-0 transition-colors duration-500" aria-hidden="true">3</span>
+              <div class="min-w-0">
+                <h3 class="font-semibold text-ink mb-1">Metas e Ciclo de Performance</h3>
+                <p>Gestão transparente de entregas, quantitativas e qualitativas.</p>
+              </div>
+            </li>
+            <li class="engine-step flex gap-4 card !rounded-xl">
+              <span class="engine-dot w-8 h-8 rounded-full bg-bg-tint text-violet-dark font-display font-bold text-sm flex items-center justify-center shrink-0 transition-colors duration-500" aria-hidden="true">4</span>
+              <div class="min-w-0">
+                <h3 class="font-semibold text-ink mb-1">Feedback e Acompanhamento</h3>
+                <p>Fluxo de comunicação sem interrupções, eliminando surpresas ao fim do ciclo e fundamentando decisões com base em dados.</p>
+              </div>
+            </li>
+            <li class="engine-step flex gap-4 card !rounded-xl border-teal bg-gradient-to-b from-bg-tint to-surface">
+              <span class="w-8 h-8 rounded-full bg-teal text-ink font-display font-bold text-sm flex items-center justify-center shrink-0" aria-hidden="true">5</span>
+              <div class="min-w-0">
+                <h3 class="font-semibold text-ink mb-1 flex flex-wrap items-center gap-2">
+                  Diagnóstico de Performance Assistido por IA
+                  <span class="inline-flex items-center gap-1 text-[0.7rem] font-bold uppercase tracking-wide bg-teal text-ink px-2 py-0.5 rounded-full">
+                    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /></svg>
+                    Chatbot Boreal
+                  </span>
+                </h3>
+                <p>Visão consolidada e contínua do colaborador. A IA processa highlights e lowlights para gerar planos de ação imediatos, com transparência e previsibilidade.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="scroll-mt-24 py-12 md:py-16 bg-bg overflow-hidden" id="depoimentos" aria-labelledby="depoimentos-title">
+      <div class="max-w-content mx-auto px-6 reveal">
+        <div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+          <div>
+            <p class="eyebrow">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg>
+              Prova social
+            </p>
+            <h2 id="depoimentos-title" class="text-3xl md:text-4xl font-bold">O que as pessoas estão falando</h2>
+          </div>
+          <div class="flex gap-2">
+            <button type="button" id="testimonialPrev" class="carousel-nav-btn" aria-label="Ver depoimento anterior">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+            </button>
+            <button type="button" id="testimonialNext" class="carousel-nav-btn" aria-label="Ver próximo depoimento">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative reveal">
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-10 md:w-24 z-10 bg-gradient-to-r from-bg to-transparent transition-opacity duration-300" id="testimonialFadeLeft" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-10 md:w-24 z-10 bg-gradient-to-l from-bg to-transparent transition-opacity duration-300" id="testimonialFadeRight" aria-hidden="true"></div>
+
+        <ul id="testimonialTrack" class="testimonial-track flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 px-6 md:px-10" tabindex="0" aria-label="Depoimentos: arraste para o lado, use as setas ou as teclas de seta do teclado para navegar">
+          <li class="testimonial-slide snap-center shrink-0 w-[82vw] sm:w-[380px] md:w-[420px]">
+            <blockquote class="testimonial-card h-full">
+              <svg class="quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg>
+              <p class="testimonial-quote">"Sempre dependemos da percepção de outras pessoas para tomar uma decisão de desligamento."</p>
+              <cite class="testimonial-cite">Natalia, Gerente de RH</cite>
+            </blockquote>
+          </li>
+          <li class="testimonial-slide snap-center shrink-0 w-[82vw] sm:w-[380px] md:w-[420px]">
+            <blockquote class="testimonial-card h-full">
+              <svg class="quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg>
+              <p class="testimonial-quote">"Ter uma solução que ajuda a conscientizar a liderança dos impactos de uma decisão de desligamento, com report de impacto financeiro e turnover, faria muita diferença."</p>
+              <cite class="testimonial-cite">Barbara, HRBP</cite>
+            </blockquote>
+          </li>
+          <li class="testimonial-slide snap-center shrink-0 w-[82vw] sm:w-[380px] md:w-[420px]">
+            <blockquote class="testimonial-card h-full">
+              <svg class="quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg>
+              <p class="testimonial-quote">"Eu já presenciei e senti o quanto uma decisão de desligamento errada impacta na vida das pessoas e das empresas."</p>
+              <cite class="testimonial-cite">Nayara Melo, Aurora</cite>
+            </blockquote>
+          </li>
+          <li class="testimonial-slide snap-center shrink-0 w-[82vw] sm:w-[380px] md:w-[420px]">
+            <blockquote class="testimonial-card h-full">
+              <svg class="quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" /></svg>
+              <p class="testimonial-quote">"Pra mim é fácil dizer se um sistema vai entrar em produção ou não, difícil é decidir sobre um desligamento."</p>
+              <cite class="testimonial-cite">Tatiana Cafre, Aurora</cite>
+            </blockquote>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PLANOS -->
+    <section class="scroll-mt-24 py-12 md:py-16 bg-gradient-to-br from-violet to-rosa" id="planos" aria-labelledby="planos-title">
+      <div class="max-w-content mx-auto px-6">
+        <div class="max-w-[760px] reveal">
+          <p class="eyebrow !text-white">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /></svg>
+            Planos
+          </p>
+          <h2 id="planos-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Planos sob medida para o tamanho da sua operação</h2>
+          <p class="text-lg text-white mb-7">Preço por colaborador, com faixas por porte de empresa nos planos Rosa e Violeta. Lançamento em breve.</p>
+          <a href="#contato" class="btn bg-white text-violet-dark hover:bg-bg-tint">Entrar na lista de espera</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO / FORMULÁRIO -->
+    <section class="scroll-mt-24 py-12 md:py-16 bg-surface" id="contato" aria-labelledby="contato-title">
+      <div class="max-w-content mx-auto px-6">
+      <div class="max-w-[760px] mx-auto reveal">
+        <div class="text-center">
+          <p class="eyebrow">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></svg>
+            Contato
+          </p>
+          <h2 id="contato-title" class="text-3xl md:text-4xl font-bold mb-3">Protagonize o fenômeno na sua empresa</h2>
+          <p class="text-lg mb-8">Agende uma demonstração. Nossa equipe entra em contato em até 8 horas úteis.</p>
+        </div>
+
+        <form class="grid md:grid-cols-2 gap-5" id="leadForm" action="https://formspree.io/f/moeqprdo" method="POST" novalidate>
+          <div class="flex flex-col gap-1.5">
+            <label class="font-semibold text-ink text-sm" for="nome">Nome completo <span class="text-rosa-dark" aria-hidden="true">*</span></label>
+            <input class="font-body px-3.5 py-2.5 rounded-xl border border-line bg-surface text-ink min-h-[44px]" type="text" id="nome" name="nome" autocomplete="name" required aria-describedby="erro-nome">
+            <p class="text-rosa-dark text-sm hidden" id="erro-nome" role="alert">Informe seu nome completo.</p>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="font-semibold text-ink text-sm" for="email">E-mail corporativo <span class="text-rosa-dark" aria-hidden="true">*</span></label>
+            <input class="font-body px-3.5 py-2.5 rounded-xl border border-line bg-surface text-ink min-h-[44px]" type="email" id="email" name="email" autocomplete="email" required aria-describedby="erro-email">
+            <p class="text-rosa-dark text-sm hidden" id="erro-email" role="alert">Informe um e-mail válido.</p>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="font-semibold text-ink text-sm" for="empresa">Empresa <span class="text-rosa-dark" aria-hidden="true">*</span></label>
+            <input class="font-body px-3.5 py-2.5 rounded-xl border border-line bg-surface text-ink min-h-[44px]" type="text" id="empresa" name="empresa" autocomplete="organization" required aria-describedby="erro-empresa">
+            <p class="text-rosa-dark text-sm hidden" id="erro-empresa" role="alert">Informe o nome da empresa.</p>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="font-semibold text-ink text-sm" for="telefone">Telefone <span class="text-rosa-dark" aria-hidden="true">*</span></label>
+            <input class="font-body px-3.5 py-2.5 rounded-xl border border-line bg-surface text-ink min-h-[44px]" type="tel" id="telefone" name="telefone" autocomplete="tel" required aria-describedby="erro-telefone">
+            <p class="text-rosa-dark text-sm hidden" id="erro-telefone" role="alert">Informe um telefone para contato.</p>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="font-semibold text-ink text-sm" for="colaboradores">Número de colaboradores <span class="text-rosa-dark" aria-hidden="true">*</span></label>
+            <select class="font-body px-3.5 py-2.5 rounded-xl border border-line bg-surface text-ink min-h-[44px]" id="colaboradores" name="colaboradores" required aria-describedby="erro-colaboradores">
+              <option value="">Selecione uma opção</option>
+              <option value="ate-50">Até 50</option>
+              <option value="50-350">De 50 a 350</option>
+              <option value="mais-350">Mais de 350</option>
+            </select>
+            <p class="text-rosa-dark text-sm hidden" id="erro-colaboradores" role="alert">Selecione o porte da sua empresa.</p>
+          </div>
+
+          <div class="flex flex-col gap-1.5 md:col-span-2">
+            <label class="font-semibold text-ink text-sm" for="mensagem">Mensagem <span class="text-muted-a11y font-normal text-sm">(opcional)</span></label>
+            <textarea class="font-body px-3.5 py-2.5 rounded-xl border border-line bg-surface text-ink min-h-[110px]" id="mensagem" name="mensagem" rows="4"></textarea>
+          </div>
+
+          <div class="absolute -left-[9999px]" aria-hidden="true">
+            <label for="site">Deixe este campo em branco</label>
+            <input type="text" id="site" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="btn-primary md:col-span-2">Agendar demonstração</button>
+
+          <p class="md:col-span-2 bg-bg-tint border border-teal rounded-xl px-4 py-3 text-ink font-medium hidden" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-bg-tint border-t border-line pt-12 pb-6 mt-12" id="footer">
+    <div class="max-w-content mx-auto px-6 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
+      <div>
+        <img src="assets/images/logo-aurora.png" alt="Aurora" class="h-6 w-auto mb-3">
+        <p class="text-muted-a11y text-sm max-w-[40ch]">A Aurora une o digital ao humano para que decisões sobre pessoas sejam tomadas com dados e consciência dos impactos. RH as a Service para colocar as pessoas como protagonistas.</p>
+      </div>
+
+      <nav aria-label="Navegação do rodapé">
+        <h3 class="text-xs font-semibold uppercase tracking-wide text-muted-a11y mb-3">Navegação</h3>
+        <ul class="grid gap-2">
+          <li><a class="text-ink hover:text-violet" href="#solucao">Sobre</a></li>
+          <li><a class="text-ink hover:text-violet" href="#rh-as-a-service">Solução</a></li>
+          <li><a class="text-ink hover:text-violet" href="#como-funciona">Como funciona</a></li>
+          <li><a class="text-ink hover:text-violet" href="#depoimentos">Depoimentos</a></li>
+          <li><a class="text-ink hover:text-violet" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-wide text-muted-a11y mb-3">Contato</h3>
+        <p class="mb-3"><a class="text-ink hover:text-violet" href="mailto:contato@aurorapro.com.br">contato@aurorapro.com.br</a></p>
+        <ul class="grid gap-2">
+          <li><a class="inline-flex items-center gap-1.5 text-ink hover:text-violet" href="https://www.instagram.com/auroraprotagonize/" target="_blank" rel="noopener noreferrer" aria-label="Aurora no Instagram (abre em nova aba)">Instagram <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a></li>
+          <li><a class="inline-flex items-center gap-1.5 text-ink hover:text-violet" href="https://www.linkedin.com/company/aurorapro/" target="_blank" rel="noopener noreferrer" aria-label="Aurora no LinkedIn (abre em nova aba)">LinkedIn <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-content mx-auto px-6">
+      <p class="mt-10 pt-5 border-t border-line text-sm text-muted-a11y">© 2026 Aurora. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
