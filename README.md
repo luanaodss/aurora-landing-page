@@ -4,7 +4,7 @@ Landing page institucional desenvolvida para a Aurora, plataforma de RH as a Ser
 
 ## Equipe
 
-- Beatriz Zeferino da Fonseca — RM: (a confirmar)
+- Beatriz Zeferino da Fonseca — RM: 572180
 - Luana Oliveira da Silva — RM: 571273
 
 *(ordem alfabética por primeiro nome)*
